@@ -1,0 +1,608 @@
+:root {
+  --ink: #25232a;
+  --muted: #6b6872;
+  --line: #dce8de;
+  --primary: #397650;
+  --primary-dark: #2e6344;
+  --primary-soft: rgba(57, 118, 80, 0.08);
+  --accent: #5ca876;
+  --accent-soft: rgba(92, 168, 118, 0.1);
+  --green: #49d7a0;
+  --green-dark: #2cb988;
+  --surface-soft: #f1f7f2;
+  accent-color: #397650;
+}
+
+body {
+  background: #f5f9f5;
+  color: #25232a;
+}
+
+.app-shell {
+  --app-surface: #fff;
+  --app-surface-soft: #f1f7f2;
+  --app-surface-hover: rgba(57, 118, 80, 0.07);
+  --app-text-secondary: #425b49;
+  --app-text-muted: #68796d;
+  --app-border: rgba(57, 118, 80, 0.14);
+  --app-header: rgba(255, 255, 255, 0.98);
+  --app-shadow: 0 12px 30px rgba(41, 82, 53, 0.05);
+  --app-shadow-hover: 0 16px 32px rgba(41, 82, 53, 0.09);
+  --app-page-highlight: rgba(57, 118, 80, 0.04);
+  background: #f5f9f5;
+}
+
+.site-header {
+  border-color: #dce8de;
+  background: #fff;
+}
+
+.workspace-layout {
+  background: #f5f9f5;
+}
+
+.primary-navigation {
+  border-color: #dce8de;
+  background: #f0f7f1;
+}
+
+.navigation-section-label {
+  color: #5d7a63;
+}
+
+.navigation-item {
+  color: #425b49;
+}
+
+.navigation-item:hover,
+.navigation-item:focus-visible {
+  color: #397650;
+  background: #e4f0e8;
+}
+
+.navigation-item.is-active {
+  color: #2e6344;
+  background: #d6ead9;
+}
+
+.navigation-item .navigation-count {
+  border-color: #dce8de;
+  color: #397650;
+  background: #f1f7f2;
+}
+
+.navigation-item.is-active .navigation-count {
+  border-color: #b8d9be;
+  color: #2e6344;
+  background: #e4f0e8;
+}
+
+.brand-name {
+  color: #397650;
+}
+
+.brand-name span:last-child {
+  color: #2e6344;
+}
+
+.header-brand-group .brand-mark {
+  background: #397650;
+}
+
+.brand-mark-art > rect:first-child {
+  fill: #397650 !important;
+}
+
+.brand-mark-art > path {
+  stroke: #d6ead9;
+  fill: none;
+}
+
+.brand-mark-art > circle {
+  fill: #d6ead9;
+}
+
+.brand-mark-art text {
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  font-weight: 800;
+  letter-spacing: -1.5px;
+}
+
+.button-primary,
+.auth-page .auth-submit {
+  color: #fff !important;
+  background: #397650 !important;
+  border-color: #2e6344 !important;
+}
+
+.button-primary:hover:not(:disabled),
+.auth-page .auth-submit:hover:not(:disabled) {
+  background: #2e6344 !important;
+}
+
+.button-secondary {
+  border-color: #dce8de;
+  color: #397650;
+  background: #f1f7f2;
+}
+
+.button-quiet {
+  border-color: #dce8de;
+  color: #425b49;
+}
+
+.icon-button:hover:not(:disabled),
+.sidebar-toggle:hover:not(:disabled) {
+  color: #397650;
+  background: #f1f7f2;
+}
+
+.category-pill,
+.category-card-icon,
+.cart-item-mark,
+.cart-success-icon,
+.cart-payment-method {
+  border-color: #dce8de;
+  color: #397650;
+  background: #f1f7f2;
+}
+
+.product-status.is-in-stock,
+.cart-item-copy small {
+  color: #166534;
+}
+
+.product-status.is-in-stock {
+  background: #f0fdf4;
+}
+
+.stock-quantity.stock-low,
+.product-status.is-low,
+.product-status.is-out {
+  color: #dc2626;
+}
+
+.category-low-stock,
+.dashboard-chart-alert {
+  color: #ef4444;
+}
+
+.cart-quantity,
+.cart-remove:hover {
+  border-color: #dce8de;
+  background: #f1f7f2;
+}
+
+.cart-summary-total strong,
+.cart-order-reference,
+.cart-payment-method > strong {
+  color: #397650;
+}
+
+.cart-order-notice {
+  border-color: #b8d9be;
+  color: #2e6344;
+  background: #f1f7f2;
+}
+
+.cart-invoice-header {
+  border-color: #397650;
+}
+
+.cart-invoice-logo {
+  background: #397650;
+}
+
+.cart-invoice-brand-copy > strong,
+.cart-invoice-brand-subtitle,
+.cart-invoice-header > div:last-child strong,
+.cart-invoice-total strong {
+  color: #397650;
+}
+
+.cart-invoice-items {
+  border-color: #dce8de;
+}
+
+.cart-invoice-row {
+  border-color: #e8f2ea;
+}
+
+.cart-invoice-table-heading {
+  color: #425b49;
+  background: #f1f7f2;
+}
+
+/* Carry the green palette through admin, storefront, and cart screens. */
+.catalogue,
+.catalogue-heading,
+.catalogue-filter-panel,
+.catalogue-summary > div,
+.order-page .order-card,
+.order-create-panel,
+.order-summary-grid > div,
+.order-row-actions button,
+.store-product-card,
+.cart-items-card,
+.cart-summary-card,
+.cart-success-card {
+  border-color: #dce8de;
+}
+
+.catalogue,
+.catalogue-heading,
+.catalogue-filter-panel,
+.catalogue-summary > div,
+.order-create-panel,
+.order-line-details,
+.store-product-grid {
+  background-color: #ffffff;
+}
+
+.catalogue-summary {
+  background: #f0f7f1;
+}
+
+.product-table tbody tr:hover,
+.order-data-table tbody tr:hover td {
+  background: #f1f7f2;
+}
+
+.order-filters label,
+.order-search svg,
+.order-table-tools,
+.order-footer {
+  color: #68796d;
+}
+
+.order-filters input:focus,
+.order-filters select:focus,
+.order-table-tools select:focus,
+.storefront-navigation button:focus-visible {
+  border-color: #397650;
+  outline-color: rgba(57, 118, 80, 0.25);
+}
+
+.order-filters input,
+.order-filters select,
+.order-table-tools select,
+.order-table-wrap,
+.order-footer button {
+  border-color: #dce8de;
+}
+
+.order-data-table th {
+  border-color: #dce8de;
+  color: #425b49;
+  background: #f1f7f2;
+}
+
+.order-data-table td,
+.order-data-table tbody tr:nth-child(even) td {
+  border-color: #e8f2ea;
+  background: #fff;
+}
+
+.order-customer,
+.order-number,
+.order-create-title,
+.order-empty svg {
+  color: #397650 !important;
+}
+
+.order-footer button.is-current {
+  border-color: #397650;
+  background: #397650;
+  color: #fff;
+}
+
+.order-line-details {
+  background: #f1f7f2;
+}
+
+.storefront-navigation {
+  border-color: #dce8de;
+}
+
+.storefront-navigation button:hover,
+.storefront-navigation button.is-active {
+  color: #397650;
+  background: #f0f7f1;
+}
+
+.storefront-navigation button > span {
+  color: #397650;
+  background: #f1f7f2;
+}
+
+.store-product-image {
+  color: #397650;
+  background: #f1f7f2;
+}
+
+.store-product-title:hover {
+  color: #397650;
+}
+
+.store-product-card-footer {
+  border-color: #e8f2ea;
+}
+
+.cart-item {
+  border-color: #e8f2ea;
+}
+
+.cart-quantity {
+  border-color: #dce8de;
+}
+
+.cart-quantity button {
+  color: #397650;
+}
+
+.cart-remove:hover {
+  color: #397650;
+  background: #f1f7f2;
+}
+
+.product-dialog.password-change-dialog.change-password-panel {
+  border-color: #b8d9be !important;
+  color: #253b2a !important;
+  background: #f0f7f1 !important;
+}
+
+.product-dialog.password-change-dialog.change-password-panel .auth-kicker,
+.product-dialog.password-change-dialog.change-password-panel .password-change-section-label span,
+.product-dialog.password-change-dialog.change-password-panel .password-change-form small {
+  color: #397650 !important;
+}
+
+.product-dialog.password-change-dialog.change-password-panel .change-password-heading h2,
+.product-dialog.password-change-dialog.change-password-panel .password-change-form .form-field {
+  color: #253b2a !important;
+}
+
+.product-dialog.password-change-dialog.change-password-panel .password-change-form .form-error {
+  color: #dc2626;
+}
+
+.product-dialog.password-change-dialog.change-password-panel .password-change-form input:focus {
+  border-color: #397650;
+  box-shadow: 0 0 0 3px rgba(57, 118, 80, 0.15);
+}
+
+.product-dialog.password-change-dialog.change-password-panel .change-password-shield {
+  border-color: #b8d9be;
+  color: #fff;
+  background: #397650;
+}
+
+.product-dialog.password-change-dialog.change-password-panel .button-quiet {
+  border-color: #dce8de;
+  color: #425b49;
+  background: #fff;
+}
+
+.product-dialog.password-change-dialog.change-password-panel .button-primary {
+  min-width: 142px;
+  min-height: 42px;
+  border: 1px solid #2e6344;
+  color: #fff;
+  background: #397650 !important;
+  box-shadow: 0 2px 6px rgba(57, 118, 80, 0.16);
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.2;
+  white-space: nowrap;
+  transition: background-color 140ms ease, box-shadow 140ms ease, transform 140ms ease;
+}
+
+.product-dialog.password-change-dialog.change-password-panel .button-primary:hover:not(:disabled) {
+  color: #fff;
+  background: #2e6344 !important;
+  box-shadow: 0 4px 10px rgba(57, 118, 80, 0.25);
+  transform: translateY(-1px);
+}
+
+.product-dialog.password-change-dialog.change-password-panel .button-primary:focus-visible {
+  outline: 3px solid rgba(57, 118, 80, 0.35);
+  outline-offset: 2px;
+}
+
+.product-dialog.password-change-dialog.change-password-panel .button-primary:disabled {
+  opacity: 0.72;
+  box-shadow: none;
+  cursor: wait;
+}
+
+.auth-page {
+  background: #f5f9f5;
+}
+
+.auth-page .auth-intro {
+  color: #253b2a !important;
+  background: linear-gradient(145deg, #e8f5ec 0%, #d6ead9 58%, #c2dfca 100%) !important;
+}
+
+.auth-page .auth-intro::after {
+  border-color: rgba(57, 118, 80, 0.16) !important;
+  box-shadow: 0 0 0 46px rgba(57, 118, 80, 0.045),
+    0 0 0 92px rgba(57, 118, 80, 0.03),
+    0 0 0 138px rgba(57, 118, 80, 0.02) !important;
+}
+
+.auth-page .auth-brand-message h1 {
+  color: #253b2a !important;
+}
+
+.auth-page .auth-brand-message h1 > span:first-child {
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.06em;
+}
+
+.auth-page .auth-company-subtitle {
+  color: #397650 !important;
+}
+
+.auth-page .auth-brand-message p,
+.auth-page .auth-index {
+  color: #5d7a63 !important;
+}
+
+.auth-page .auth-brand-message p {
+  color: #425b49 !important;
+}
+
+.auth-tech-mark {
+  color: #2e6344;
+}
+
+.auth-page .auth-panel {
+  background: #f5f9f5;
+}
+
+.auth-page .auth-form-wrap {
+  border-color: #dce8de;
+}
+
+.auth-page .auth-kicker {
+  color: #397650 !important;
+}
+
+.auth-page .auth-tabs button.is-active {
+  border-bottom-color: #397650;
+  color: #397650;
+}
+
+.auth-page .auth-input-wrap:focus-within {
+  border-color: #397650;
+  box-shadow: 0 0 0 3px rgba(57, 118, 80, 0.12);
+}
+
+.auth-page .auth-mobile-brand .brand-name {
+  color: #397650;
+}
+
+.auth-email-avatar {
+  background: linear-gradient(135deg, #397650, #2e6344);
+  box-shadow: 0 12px 20px rgba(57, 118, 80, 0.18);
+}
+
+.auth-password-toggle:focus-visible {
+  outline-color: rgba(57, 118, 80, 0.4);
+}
+
+.stock-label {
+  outline-color: rgba(57, 118, 80, 0.25);
+}
+
+/* Green accents for header, account controls, and notifications */
+.site-header {
+  position: sticky;
+  border-color: #dce8de;
+  background: #fff;
+}
+
+.site-header::before {
+  display: none;
+}
+
+.site-header .session-controls .account-menu .session-account-trigger {
+  border-color: #dce8de;
+  color: #253b2a;
+  background: #fff;
+}
+
+.site-header .session-controls .account-menu .session-account-trigger:hover,
+.site-header .session-controls .account-menu .session-account-trigger:focus-visible,
+.site-header .session-controls .account-menu .session-account-trigger[aria-expanded="true"] {
+  border-color: #b8d9be;
+  background: #fff;
+}
+
+.session-account-role,
+.notification-popup-heading .notification-total {
+  color: #397650;
+  background: #f1f7f2;
+}
+
+.notification-trigger {
+  border-color: #dce8de;
+  color: #397650;
+  background: #fff;
+}
+
+.notification-trigger:hover,
+.notification-trigger:focus-visible,
+.notification-trigger[aria-expanded="true"] {
+  border-color: #b8d9be;
+  background: #f1f7f2;
+}
+
+.notification-count {
+  background: #397650;
+}
+
+input,
+select,
+textarea {
+  accent-color: #397650;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline-color: rgba(57, 118, 80, 0.3);
+}
+
+* {
+  scrollbar-color: #397650 #f0f7f1 !important;
+  scrollbar-width: thin;
+}
+
+*::-webkit-scrollbar {
+  width: 10px !important;
+  height: 10px !important;
+}
+
+*::-webkit-scrollbar-track {
+  border-radius: 999px;
+  background: #f0f7f1 !important;
+}
+
+*::-webkit-scrollbar-thumb {
+  border: 2px solid #f0f7f1 !important;
+  border-radius: 999px;
+  background: #397650 !important;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: #2e6344 !important;
+}
+
+.auth-panel {
+  scrollbar-color: #397650 #f0f7f1 !important;
+}
+
+.auth-panel::-webkit-scrollbar-track {
+  background: #f0f7f1 !important;
+}
+
+.auth-panel::-webkit-scrollbar-thumb {
+  border-color: #f0f7f1 !important;
+  background: #397650 !important;
+}
+
+@media (max-width: 900px) {
+  .primary-navigation {
+    background: #f0f7f1;
+  }
+}
+
+@media (max-width: 600px) {
+  .primary-navigation {
+    border-color: #dce8de;
+  }
+}

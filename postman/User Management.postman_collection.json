@@ -1,0 +1,149 @@
+{
+  "info": {
+    "_postman_id": "5ab672c9-0e8d-4c2b-a2e4-9ca3ae7cda58",
+    "name": "DG Tech Store - Users and Authentication",
+    "description": "Requests for registration, login, password management, and admin-only user management. The API runs on port 3000 by default. Log in as the configured admin before using the admin requests.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      { "key": "token", "value": "{{authToken}}", "type": "string" }
+    ]
+  },
+  "item": [
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Register user",
+          "request": {
+            "auth": { "type": "noauth" },
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"name\": \"{{newUserName}}\",\n  \"email\": \"{{newUserEmail}}\",\n  \"password\": \"{{newUserPassword}}\"\n}" },
+            "url": "{{baseUrl}}/auth/register"
+          }
+        },
+        {
+          "name": "Login (saves authToken)",
+          "event": [{
+            "listen": "test",
+            "script": {
+              "type": "text/javascript",
+              "exec": [
+                "pm.test('Login succeeded', function () { pm.response.to.have.status(200); });",
+                "const body = pm.response.json();",
+                "if (body.token) pm.collectionVariables.set('authToken', body.token);",
+                "if (body.user && body.user.id) pm.collectionVariables.set('currentUserId', body.user.id);",
+                "if (body.user && body.user.role) pm.collectionVariables.set('currentUserRole', body.user.role);"
+              ]
+            }
+          }],
+          "request": {
+            "auth": { "type": "noauth" },
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"email\": \"{{loginEmail}}\",\n  \"password\": \"{{loginPassword}}\"\n}" },
+            "url": "{{baseUrl}}/auth/login"
+          }
+        },
+        {
+          "name": "Change my password",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"currentPassword\": \"{{currentPassword}}\",\n  \"newPassword\": \"{{newPassword}}\"\n}" },
+            "url": "{{baseUrl}}/auth/change-password"
+          }
+        },
+        {
+          "name": "Request password reset email",
+          "request": {
+            "auth": { "type": "noauth" },
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"email\": \"{{resetEmail}}\"\n}" },
+            "url": "{{baseUrl}}/auth/forgot-password"
+          }
+        },
+        {
+          "name": "Reset password (requires emailed token)",
+          "request": {
+            "auth": { "type": "noauth" },
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"token\": \"{{passwordResetToken}}\",\n  \"password\": \"{{newUserPassword}}\"\n}" },
+            "url": "{{baseUrl}}/auth/reset-password"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Users (admin endpoints require an admin token)",
+      "item": [
+        {
+          "name": "Get my user record",
+          "request": { "method": "GET", "url": "{{baseUrl}}/users/me" }
+        },
+        {
+          "name": "List users (admin)",
+          "request": { "method": "GET", "url": "{{baseUrl}}/users" }
+        },
+        {
+          "name": "Create user (admin)",
+          "event": [{
+            "listen": "test",
+            "script": {
+              "type": "text/javascript",
+              "exec": [
+                "const body = pm.response.json();",
+                "if (body.data && body.data.id) pm.collectionVariables.set('targetUserId', body.data.id);"
+              ]
+            }
+          }],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"name\": \"{{newUserName}}\",\n  \"email\": \"{{newUserEmail}}\",\n  \"password\": \"{{newUserPassword}}\",\n  \"role\": \"user\"\n}" },
+            "url": "{{baseUrl}}/users"
+          }
+        },
+        {
+          "name": "Update user role (admin)",
+          "request": {
+            "method": "PATCH",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"role\": \"staff\"\n}" },
+            "url": "{{baseUrl}}/users/{{targetUserId}}/role"
+          }
+        },
+        {
+          "name": "Update product-management access (admin)",
+          "request": {
+            "method": "PATCH",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"canManageProducts\": true\n}" },
+            "url": "{{baseUrl}}/users/{{targetUserId}}/product-access"
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:3000" },
+    { "key": "authToken", "value": "" },
+    { "key": "currentUserId", "value": "" },
+    { "key": "currentUserRole", "value": "" },
+    { "key": "targetUserId", "value": "" },
+    { "key": "loginEmail", "value": "" },
+    { "key": "loginPassword", "value": "" },
+    { "key": "newUserName", "value": "Sample User" },
+    { "key": "newUserEmail", "value": "sample.user@example.com" },
+    { "key": "newUserPassword", "value": "ChangeMe123!" },
+    { "key": "currentPassword", "value": "" },
+    { "key": "newPassword", "value": "" },
+    { "key": "resetEmail", "value": "" },
+    { "key": "passwordResetToken", "value": "" }
+  ]
+}
